@@ -10,7 +10,7 @@ import jakarta.persistence.JoinTable
 import jakarta.persistence.ManyToMany
 
 @Entity
-data class User(
+data class AppUser(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
     val username: String,
@@ -22,5 +22,5 @@ data class User(
         joinColumns = [JoinColumn(name = "user_id")],
         inverseJoinColumns = [JoinColumn(name = "role_id")]
     )
-    val roles: Set<Role> = setOf()
+    val roles: Set<AppRole> = setOf()
 )
