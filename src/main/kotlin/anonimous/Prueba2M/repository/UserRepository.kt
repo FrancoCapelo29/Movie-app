@@ -1,8 +1,9 @@
 package anonimous.Prueba2M.repository
 
+import anonimous.Prueba2M.controller.AppUser
 import org.apache.catalina.User
 import org.springframework.data.jpa.repository.JpaRepository
 
-interface UserRepository : JpaRepository<User, Long> {
-    fun findByUsername(username: String): User?
+interface AppUserRepository : JpaRepository<AppUser, Long> {
+    fun findByUsername(username: String): AppUser?
 }
