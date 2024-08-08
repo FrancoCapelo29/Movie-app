@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.*
 @RequestMapping("/players")
 class PlayerController(private val playerService: PlayerService) {
 
-    @GetMapping
-    fun getAllPlayers() = playerService.findAll()
-
     @PostMapping
-    fun createPlayer(@RequestBody player: Player) = playerService.save(player)
+    fun createPlayer(@RequestBody player: Player): Player = playerService.savePlayer(player)
+
+    @GetMapping
+    fun getPlayers(): List<Player> = playerService.getPlayers()
 }

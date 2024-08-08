@@ -1,7 +1,6 @@
 package anonimous.Prueba2M.repository
 
 import anonimous.Prueba2M.controller.AppUser
-import org.apache.catalina.User
 import org.springframework.data.jpa.repository.JpaRepository
 
 interface AppUserRepository : JpaRepository<AppUser, Long> {
