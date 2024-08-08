@@ -13,19 +13,21 @@ CREATE TABLE PLAYER (
     FOREIGN KEY(team_id)
     REFERENCES TEAM(id)
 );
-CREATE TABLE ROLE (
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(20) NOT NULL
-);
-CREATE TABLE "USER" (
+CREATE TABLE APP_USER (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     password VARCHAR(100) NOT NULL
 );
+
+CREATE TABLE APP_ROLE (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(20) NOT NULL
+);
+
 CREATE TABLE user_roles (
     user_id INT,
     role_id INT,
     PRIMARY KEY (user_id, role_id),
-    FOREIGN KEY (user_id) REFERENCES "USER"(id),
-    FOREIGN KEY (role_id) REFERENCES ROLE(id)
+    FOREIGN KEY (user_id) REFERENCES APP_USER(id),
+    FOREIGN KEY (role_id) REFERENCES APP_ROLE(id)
 );
